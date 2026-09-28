@@ -1,0 +1,83 @@
+/* Google Places Autocomplete Dropdown Styling */
+
+/* Override default Google Places autocomplete container */
+.pac-container {
+  z-index: 99999 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12) !important;
+  border: 1px solid #e5e7eb !important;
+  margin-top: 4px !important;
+  font-family: inherit !important;
+  background: #ffffff !important;
+}
+
+/* Autocomplete dropdown items */
+.pac-item {
+  padding: 10px 12px !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  border-top: 1px solid #f3f4f6 !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.pac-item:first-child {
+  border-top: none !important;
+  border-top-left-radius: 12px !important;
+  border-top-right-radius: 12px !important;
+}
+
+.pac-item:last-child {
+  border-bottom-left-radius: 12px !important;
+  border-bottom-right-radius: 12px !important;
+}
+
+/* Hover state for items */
+.pac-item:hover {
+  background-color: #f5f6f7 !important;
+}
+
+/* Selected/focused item */
+.pac-item-selected,
+.pac-item-selected:hover {
+  background-color: #e0f2fe !important;
+}
+
+/* Icon styling */
+.pac-icon {
+  margin-top: 2px !important;
+  margin-right: 8px !important;
+  background-size: 16px !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+/* Main text (place name) */
+.pac-item-query {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #111827 !important;
+}
+
+/* Secondary text (address) */
+.pac-matched {
+  font-weight: 700 !important;
+  color: #00AEEF !important;
+}
+
+/* After dropdown */
+.pac-container:after {
+  display: none !important;
+}
+
+/* Logo */
+.pac-logo:after {
+  padding: 8px !important;
+}
+
+/* Ensure visibility */
+body .pac-container {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}

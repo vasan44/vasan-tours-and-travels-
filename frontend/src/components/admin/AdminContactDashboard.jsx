@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Trash2, Mail, Phone, User, MessageSquare, Calendar } from 'lucide-react';
+import API_URL from '../../config/api';
 
 export default function AdminContactDashboard() {
   const [contacts, setContacts] = useState([]);
@@ -15,7 +16,7 @@ export default function AdminContactDashboard() {
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.get('http://localhost:5000/api/contact');
+      const response = await axios.get(`${API_URL}/api/contact`);
       
       if (response.data.success) {
         setContacts(response.data.data);
@@ -34,7 +35,7 @@ export default function AdminContactDashboard() {
     }
 
     try {
-      await axios.delete(`http://localhost:5000/api/contact/${id}`);
+      await axios.delete(`${API_URL}/api/contact/${id}`);
       setContacts(contacts.filter(contact => contact._id !== id));
       alert('✅ Contact deleted successfully');
     } catch (err) {

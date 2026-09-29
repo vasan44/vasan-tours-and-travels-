@@ -84,120 +84,77 @@ import Navbar from "./components/Navbar";
 
 
 
+function PublicLayout({ children }) {
+  return (
+    <>
+      <Navbar />
+      <Header />
+      {children}
+      <Footer />
+    </>
+  );
+}
+
 function App() {
   return (
     <BrowserRouter>
-    <ScrollToTop/>
+      <ScrollToTop />
       <Routes>
         {/* --- ADMIN ROUTES (No Header/Footer) --- */}
         <Route path="/admin" element={<Navigate to="/admin/login" replace />} />
         <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin/dashboard" element={
-          <ProtectedRoute>
-            <AdminDashboard />
-          </ProtectedRoute>
-        } />
-        <Route path="/admin/car-bookings" element={
-          <ProtectedRoute>
-            <AdminCarRentalBookings />
-          </ProtectedRoute>
-        } />
-        <Route path="/admin/tour-bookings" element={
-          <ProtectedRoute>
-            <AdminTourBookings />
-          </ProtectedRoute>
-        } />
-        <Route path="/admin/contacts" element={
-          <ProtectedRoute>
-            <AdminContactDashboard />
-          </ProtectedRoute>
-        } />
+        <Route path="/admin/dashboard" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+        <Route path="/admin/car-bookings" element={<ProtectedRoute><AdminCarRentalBookings /></ProtectedRoute>} />
+        <Route path="/admin/tour-bookings" element={<ProtectedRoute><AdminTourBookings /></ProtectedRoute>} />
+        <Route path="/admin/contacts" element={<ProtectedRoute><AdminContactDashboard /></ProtectedRoute>} />
 
         {/* --- PUBLIC ROUTES (With Header/Footer) --- */}
-        <Route path="/*" element={
-          <>
-            <Navbar/>
-            <Header />
-            <Routes>
-        
+        <Route path="/" element={<PublicLayout><Hero /><Categories /><Stats /><RecentTours /><Testimonials /><BookingSection /></PublicLayout>} />
+        <Route path="/about" element={<PublicLayout><About /></PublicLayout>} />
+        <Route path="/domestic" element={<PublicLayout><Domestic /></PublicLayout>} />
+        <Route path="/packages" element={<PublicLayout><Packages /></PublicLayout>} />
+        <Route path="/car-rental" element={<PublicLayout><CarRental /></PublicLayout>} />
+        <Route path="/car-rental/selection" element={<PublicLayout><CarRentalSelection /></PublicLayout>} />
+        <Route path="/contact" element={<PublicLayout><Contact /></PublicLayout>} />
 
-        {/* --- HOME PAGE --- */}
-        <Route path="/" element={
-          <>
-            <Hero />
-            <Categories />
-            <Stats/>
-            <RecentTours/>
-            <Testimonials/>
-            <BookingSection/>
-      
-          
-            
-
-          </>
-        } />
-        
-        {/* --- MAIN MENU PAGES --- */}
-        <Route path="/about" element={<About />} />
-        <Route path="/domestic" element={<Domestic/>} />
-     
-        <Route path="/packages" element={<Packages />} />
-        <Route path="/car-rental" element={<CarRental />} />
-        <Route path="/contact" element={<Contact />} />
-
-        {/*  CAR RENTAL ROUTES  */}
-        {/* <Route path="/car-rental" element={<Ca />} /> */}
-        <Route path="/car-rental/selection" element={<CarRentalSelection />} />
-    
-        {/* <Route path="/car-rental/chennai" element={<CarRentalChennai />} />
-        <Route path="/car-rental/madurai" element={<CarRentalMadurai/>} />
-         */}
         {/* --- KERALA ROUTES --- */}
-        <Route path="/domestic/kerala/wayanad" element={<Wayanad />} />
-        <Route path="/domestic/kerala/munnar" element={<Munnar/>} />
-        <Route path="/domestic/kerala/alappuzha" element={<Alappuzha />} />
-        <Route path="/domestic/kerala/kochi" element={<Kochi />} />
-        <Route path="/domestic/kerala/vagamon" element={<Vagamon />} />
-        <Route path="/domestic/kerala/varkala" element={<Varkala />} />
-        <Route path="/domestic/kerala/kerala" element={<Kerala/>}/>
+        <Route path="/domestic/kerala/wayanad" element={<PublicLayout><Wayanad /></PublicLayout>} />
+        <Route path="/domestic/kerala/munnar" element={<PublicLayout><Munnar /></PublicLayout>} />
+        <Route path="/domestic/kerala/alappuzha" element={<PublicLayout><Alappuzha /></PublicLayout>} />
+        <Route path="/domestic/kerala/kochi" element={<PublicLayout><Kochi /></PublicLayout>} />
+        <Route path="/domestic/kerala/vagamon" element={<PublicLayout><Vagamon /></PublicLayout>} />
+        <Route path="/domestic/kerala/varkala" element={<PublicLayout><Varkala /></PublicLayout>} />
+        <Route path="/domestic/kerala/kerala" element={<PublicLayout><Kerala /></PublicLayout>} />
 
         {/* --- KARNATAKA ROUTES --- */}
-        <Route path="/domestic/karnataka/coorg" element={<Coorg />} />
-        <Route path="/domestic/karnataka/chikkamagaluru" element={<Chikkamagaluru />} />
-        <Route path="/domestic/karnataka/dandeli" element={<Dandeli/>} />
-        <Route path="/domestic/karnataka/gokarna" element={<Gokarna/>} />
-        <Route path="/domestic/karnataka/mysuru" element={<Mysuru/>} />
-        <Route path="/domestic/karnataka/hampi" element={<Hampi/>} />
+        <Route path="/domestic/karnataka/coorg" element={<PublicLayout><Coorg /></PublicLayout>} />
+        <Route path="/domestic/karnataka/chikkamagaluru" element={<PublicLayout><Chikkamagaluru /></PublicLayout>} />
+        <Route path="/domestic/karnataka/dandeli" element={<PublicLayout><Dandeli /></PublicLayout>} />
+        <Route path="/domestic/karnataka/gokarna" element={<PublicLayout><Gokarna /></PublicLayout>} />
+        <Route path="/domestic/karnataka/mysuru" element={<PublicLayout><Mysuru /></PublicLayout>} />
+        <Route path="/domestic/karnataka/hampi" element={<PublicLayout><Hampi /></PublicLayout>} />
 
         {/* --- NORTH INDIA ROUTES --- */}
-        <Route path="/domestic/northindia/pune" element={<Pune/>} />
-        <Route path="/domestic/northindia/goa" element={<Goa/>} />
-        <Route path="/domestic/northindia/manali" element={<Manali/>} />
-        <Route path="/domestic/northindia/golden-triangle" element={<GoldenTriangle/>} />
-        <Route path="/domestic/northindia/rajasthan" element={<Rajasthan/>} />
-        <Route path="/domestic/northindia/kashmir" element={<Kashmir/>} />
+        <Route path="/domestic/northindia/pune" element={<PublicLayout><Pune /></PublicLayout>} />
+        <Route path="/domestic/northindia/goa" element={<PublicLayout><Goa /></PublicLayout>} />
+        <Route path="/domestic/northindia/manali" element={<PublicLayout><Manali /></PublicLayout>} />
+        <Route path="/domestic/northindia/golden-triangle" element={<PublicLayout><GoldenTriangle /></PublicLayout>} />
+        <Route path="/domestic/northindia/rajasthan" element={<PublicLayout><Rajasthan /></PublicLayout>} />
+        <Route path="/domestic/northindia/kashmir" element={<PublicLayout><Kashmir /></PublicLayout>} />
 
         {/* --- TAMIL NADU ROUTES --- */}
-        <Route path="/domestic/tamilnadu/ooty" element={<Ooty/>} />
-        <Route path="/domestic/tamilnadu/kodaikanal" element={<Kodaikanal/>} />
-        <Route path="/domestic/tamilnadu/pondy" element={<Pondy/>} />
-        <Route path="/domestic/tamilnadu/rameshwaram" element={<Rameshwaram/>} />
-        <Route path="/domestic/tamilnadu/kanyakumari" element={<Kanyakumari/>} />
-        <Route path="/domestic/tamilnadu/madurai" element={<Madurai/>} />
-
-       
+        <Route path="/domestic/tamilnadu/ooty" element={<PublicLayout><Ooty /></PublicLayout>} />
+        <Route path="/domestic/tamilnadu/kodaikanal" element={<PublicLayout><Kodaikanal /></PublicLayout>} />
+        <Route path="/domestic/tamilnadu/pondy" element={<PublicLayout><Pondy /></PublicLayout>} />
+        <Route path="/domestic/tamilnadu/rameshwaram" element={<PublicLayout><Rameshwaram /></PublicLayout>} />
+        <Route path="/domestic/tamilnadu/kanyakumari" element={<PublicLayout><Kanyakumari /></PublicLayout>} />
+        <Route path="/domestic/tamilnadu/madurai" element={<PublicLayout><Madurai /></PublicLayout>} />
 
         {/* --- PACKAGES ROUTES --- */}
-        <Route path="/packages/family" element={<FamilyTour/>}/>
-        <Route path="/packages/honeymoon" element={<HoneymoonTour/>} />
-        <Route path="/packages/devotional" element={<DevotionalTour/>}/>
-        <Route path="/packages/educational" element={<EducationalTour/>}/>
-
-        
-      </Routes>
-      <Footer />
-          </>
-        } />
+        <Route path="/packages/family" element={<PublicLayout><FamilyTour /></PublicLayout>} />
+        <Route path="/packages/honeymoon" element={<PublicLayout><HoneymoonTour /></PublicLayout>} />
+        <Route path="/packages/devotional" element={<PublicLayout><DevotionalTour /></PublicLayout>} />
+        <Route path="/packages/educational" element={<PublicLayout><EducationalTour /></PublicLayout>} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
 import axios from 'axios';
+import API_URL from '../config/api';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -20,7 +21,7 @@ export default function ContactForm() {
     setLoading(true);
     
     try {
-      const response = await axios.post('http://localhost:5000/api/contact', formData);
+      const response = await axios.post(`${API_URL}/api/contact`, formData);
       
       if (response.data.success) {
         alert('✅ Thank you! We will contact you soon.');

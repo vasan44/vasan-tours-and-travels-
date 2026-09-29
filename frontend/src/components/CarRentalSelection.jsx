@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Car, Check } from 'lucide-react';
+import API_URL from '../config/api';
 
 export default function CarRentalSelection() {
   const [cars, setCars] = useState([]);
@@ -13,7 +14,7 @@ export default function CarRentalSelection() {
 
   const fetchCars = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/cars');
+      const res = await fetch(`${API_URL}/api/cars`);
       const data = await res.json();
       setCars(data);
     } catch (error) {
@@ -42,7 +43,7 @@ export default function CarRentalSelection() {
 
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/api/bookings/create', {
+      const res = await fetch(`${API_URL}/api/bookings/create`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

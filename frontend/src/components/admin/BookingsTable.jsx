@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Trash2, Check, X, Eye } from 'lucide-react';
+import API_URL from '../../config/api';
 
 export default function BookingsTable({ bookings, onRefresh }) {
   const [selectedBooking, setSelectedBooking] = useState(null);
@@ -7,7 +8,7 @@ export default function BookingsTable({ bookings, onRefresh }) {
   const updateStatus = async (id, status) => {
     const token = localStorage.getItem('adminToken');
     try {
-      const res = await fetch(`http://localhost:5000/api/bookings/${id}/status`, {
+      const res = await fetch(`${API_URL}/api/bookings/${id}/status`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -30,7 +31,7 @@ export default function BookingsTable({ bookings, onRefresh }) {
 
     const token = localStorage.getItem('adminToken');
     try {
-      const res = await fetch(`http://localhost:5000/api/bookings/${id}`, {
+      const res = await fetch(`${API_URL}/api/bookings/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });

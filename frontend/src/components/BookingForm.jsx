@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_URL from '../config/api';
 
 export default function BookingForm({ tourName }) {
   const [formData, setFormData] = useState({
@@ -25,7 +26,7 @@ export default function BookingForm({ tourName }) {
     console.log('📤 Tour booking payload:', formData);
     
     try {
-      const response = await fetch('http://localhost:5000/api/tour-bookings', {
+      const response = await fetch(`${API_URL}/api/tour-bookings`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

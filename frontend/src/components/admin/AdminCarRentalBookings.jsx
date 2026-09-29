@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Car, Calendar, Phone, MapPin, User, Check, X, Trash2, LogOut } from 'lucide-react';
+import API_URL from '../../config/api';
 
 export default function AdminCarRentalBookings() {
   const [bookings, setBookings] = useState([]);
@@ -15,7 +16,7 @@ export default function AdminCarRentalBookings() {
 
   const fetchBookings = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/admin/bookings');
+      const response = await fetch(`${API_URL}/api/admin/bookings`);
       const data = await response.json();
       setBookings(data);
     } catch (error) {
@@ -28,7 +29,7 @@ export default function AdminCarRentalBookings() {
   const handleConfirm = async (id) => {
     setActionLoading(id);
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/bookings/${id}/confirm`, {
+      const response = await fetch(`${API_URL}/api/admin/bookings/${id}/confirm`, {
         method: 'PATCH'
       });
       if (response.ok) fetchBookings();
@@ -42,7 +43,7 @@ export default function AdminCarRentalBookings() {
   const handleCancel = async (id) => {
     setActionLoading(id);
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/bookings/${id}/cancel`, {
+      const response = await fetch(`${API_URL}/api/admin/bookings/${id}/cancel`, {
         method: 'PATCH'
       });
       if (response.ok) fetchBookings();
@@ -57,7 +58,7 @@ export default function AdminCarRentalBookings() {
     if (!window.confirm('Are you sure you want to delete this booking?')) return;
     setActionLoading(id);
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/bookings/${id}`, {
+      const response = await fetch(`${API_URL}/api/admin/bookings/${id}`, {
         method: 'DELETE'
       });
       if (response.ok) fetchBookings();

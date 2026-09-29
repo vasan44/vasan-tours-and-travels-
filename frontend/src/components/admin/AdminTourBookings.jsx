@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, Filter, Check, X, Trash2, LogOut } from 'lucide-react';
+import API_URL from '../../config/api';
 
 export default function AdminTourBookings() {
   const [bookings, setBookings] = useState([]);
@@ -19,7 +20,7 @@ export default function AdminTourBookings() {
     setError(null);
     
     try {
-      const url = `http://localhost:5000/api/tour-bookings?search=${search}&status=${status}`;
+      const url = `${API_URL}/api/tour-bookings?search=${search}&status=${status}`;
       console.log('🔄 Fetching tour bookings from:', url);
       
       const response = await fetch(url);
@@ -65,7 +66,7 @@ export default function AdminTourBookings() {
 
   const updateStatus = async (id, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/tour-bookings/${id}/status`, {
+      const response = await fetch(`${API_URL}/api/tour-bookings/${id}/status`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus })
@@ -88,7 +89,7 @@ export default function AdminTourBookings() {
     if (!window.confirm('⚠️ Delete this booking permanently?')) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/tour-bookings/${id}`, {
+      const response = await fetch(`${API_URL}/api/tour-bookings/${id}`, {
         method: 'DELETE'
       });
 

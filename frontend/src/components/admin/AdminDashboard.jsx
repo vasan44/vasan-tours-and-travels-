@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Users, Car, Calendar, LogOut, Search, Filter, Check, X, Trash2, MapPin } from 'lucide-react';
+import API_URL from '../../config/api';
 
 export default function AdminDashboard() {
   const [carBookings, setCarBookings] = useState([]);
@@ -35,7 +36,7 @@ export default function AdminDashboard() {
 
   const fetchCarBookings = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/book-car?search=${search}&status=${status}`);
+      const res = await fetch(`${API_URL}/api/book-car?search=${search}&status=${status}`);
       const data = await res.json();
       const list = Array.isArray(data) ? data : (data.bookings || data.data || []);
       setCarBookings(list);
@@ -47,7 +48,7 @@ export default function AdminDashboard() {
 
   const fetchTourBookings = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/tour-bookings?search=${search}&status=${status}`);
+      const res = await fetch(`${API_URL}/api/tour-bookings?search=${search}&status=${status}`);
       const data = await res.json();
       const list = Array.isArray(data) ? data : (data.bookings || data.data || []);
       setTourBookings(list);
@@ -59,7 +60,7 @@ export default function AdminDashboard() {
 
   const fetchCarsCount = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/cars');
+      const res = await fetch(`${API_URL}/api/cars`);
       const data = await res.json();
       const list = Array.isArray(data) ? data : (data.cars || data.data || []);
       setTotalCars(list.length);
@@ -93,8 +94,8 @@ export default function AdminDashboard() {
     setActionLoading(id);
     try {
       const endpoint = action === 'delete' 
-        ? `http://localhost:5000/api/admin/bookings/${id}`
-        : `http://localhost:5000/api/admin/bookings/${id}/${action}`;
+        ? `${API_URL}/api/admin/bookings/${id}`
+        : `${API_URL}/api/admin/bookings/${id}/${action}`;
       
       const res = await fetch(endpoint, {
         method: action === 'delete' ? 'DELETE' : 'PATCH'
@@ -117,8 +118,8 @@ export default function AdminDashboard() {
     setActionLoading(id);
     try {
       const endpoint = action === 'delete'
-        ? `http://localhost:5000/api/tour-bookings/${id}`
-        : `http://localhost:5000/api/tour-bookings/${id}/status`;
+        ? `${API_URL}/api/tour-bookings/${id}`
+        : `${API_URL}/api/tour-bookings/${id}/status`;
       
       const res = await fetch(endpoint, {
         method: action === 'delete' ? 'DELETE' : 'PUT',

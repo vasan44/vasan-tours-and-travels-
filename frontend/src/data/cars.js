@@ -152,7 +152,7 @@ export const cars = {
       rating: 4.8,
       reviewCount: 324,
       image:
-        "https://static.toyotabharat.com/images/showroom/innova-mmc/unmatched-unrivaled-banner1600x850.jpg",
+        "https://stimg.cardekho.com/images/carexteriorimages/930x620/Toyota/Innova-Crysta/6477/1614747593719/front-left-side-47.jpg",
       features: ["AC", "Comfort Ride", "Airbags"],
     },
     {

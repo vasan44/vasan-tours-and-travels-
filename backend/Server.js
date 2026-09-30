@@ -5,7 +5,22 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  process.env.CORS_ORIGIN,
+].filter(Boolean);
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -15,27 +30,16 @@ app.use((req, res, next) => {
   next();
 });
 
-// --- MongoDB Connection ---
+// --- MongoDB Connection (serverless-safe: reuse existing connection) ---
 const MONGO_URI = process.env.MONGO_URI;
 
 if (!MONGO_URI) {
-    console.error('❌ ERROR: MONGO_URI is not defined in .env file');
-    process.exit(1);
+    console.error('❌ ERROR: MONGO_URI is not defined in environment variables');
+} else if (mongoose.connection.readyState === 0) {
+    mongoose.connect(MONGO_URI)
+        .then(() => console.log('✅ MongoDB Connected:', mongoose.connection.name))
+        .catch((err) => console.error('❌ MongoDB Connection Error:', err.message));
 }
-
-console.log('🔄 Connecting to MongoDB...');
-
-mongoose.connect(MONGO_URI)
-    .then(() => {
-        console.log('✅ Holidays Database Connected Successfully');
-        console.log('📊 Database:', mongoose.connection.name);
-        console.log('📊 Host:', mongoose.connection.host);
-        console.log('📊 Ready State:', mongoose.connection.readyState);
-    })
-    .catch((err) => {
-        console.error('❌ MongoDB Connection Error:', err.message);
-        process.exit(1);
-    });
 
 // --- Import Routes ---
 const adminRoutes = require('./routes/adminRoutes');
@@ -115,8 +119,12 @@ app.post('/api/book', async (req, res) => {
     }
 });
 
-// --- SERVER START ---
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+// --- SERVER START (local dev) / export (Vercel serverless) ---
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
     console.log(`🚀 Server running on http://localhost:${PORT}`);
-});
+  });
+}
+
+module.exports = app;

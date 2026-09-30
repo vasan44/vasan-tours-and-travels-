@@ -8,10 +8,11 @@ const app = express();
 const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:3000',
+  'https://frontend-git-main-vasanro44-8300s-projects.vercel.app',
   process.env.CORS_ORIGIN,
 ].filter(Boolean);
 
-app.use(cors({
+const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
@@ -19,8 +20,19 @@ app.use(cors({
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true
-}));
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
+// Handle OPTIONS preflight for all routes (Express v5 compatible)
+app.use((req, res, next) => {
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+  next();
+});
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -34,11 +46,11 @@ app.use((req, res, next) => {
 const MONGO_URI = process.env.MONGO_URI;
 
 if (!MONGO_URI) {
-    console.error('❌ ERROR: MONGO_URI is not defined in environment variables');
+  console.error('❌ ERROR: MONGO_URI is not defined in environment variables');
 } else if (mongoose.connection.readyState === 0) {
-    mongoose.connect(MONGO_URI)
-        .then(() => console.log('✅ MongoDB Connected:', mongoose.connection.name))
-        .catch((err) => console.error('❌ MongoDB Connection Error:', err.message));
+  mongoose.connect(MONGO_URI)
+    .then(() => console.log('✅ MongoDB Connected:', mongoose.connection.name))
+    .catch((err) => console.error('❌ MongoDB Connection Error:', err.message));
 }
 
 // --- Import Routes ---

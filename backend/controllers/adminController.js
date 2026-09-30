@@ -33,7 +33,8 @@ exports.login = async (req, res) => {
 
     console.log('✅ Password valid for:', email);
 
-    const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
+    const JWT_SECRET = process.env.JWT_SECRET;
+    if (!JWT_SECRET) throw new Error('JWT_SECRET is not configured');
     const token = jwt.sign(
       { id: admin._id, email: admin.email, role: admin.role }, 
       JWT_SECRET, 

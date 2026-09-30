@@ -145,7 +145,7 @@ export default function AdminTourBookings() {
           <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">
             <strong>Error:</strong> {error}
             <br />
-            <small>Check console for details. Ensure backend is running on port 5000.</small>
+            <small>Check console for details. Ensure the backend server is running.</small>
           </div>
         )}
 

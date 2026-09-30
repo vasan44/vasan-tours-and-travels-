@@ -46,7 +46,7 @@ export default function AdminLogin() {
       }
     } catch (err) {
       console.error('❌ Network error:', err);
-      setError('Server error. Please check if backend is running on port 5000.');
+      setError('Server error. Please try again later.');
     } finally {
       setLoading(false);
     }

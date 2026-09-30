@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { API_CONFIGURATION_ERROR, isApiConfigured } from "./config/api";
 
 // --- MAIN COMPONENTS ---
 import Header from "./components/Header";
@@ -98,7 +99,18 @@ function PublicLayout({ children }) {
 function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop />
+      {!isApiConfigured && (
+        <main className="min-h-screen bg-gray-50 px-6 py-16 text-gray-900">
+          <div role="alert" className="mx-auto max-w-2xl border border-red-200 bg-white p-6 shadow-sm">
+            <h1 className="text-xl font-semibold text-red-700">Backend configuration required</h1>
+            <p className="mt-3 text-sm leading-6">{API_CONFIGURATION_ERROR}</p>
+            <p className="mt-2 text-sm text-gray-600">For local development, set VITE_API_URL in .env.development.local.</p>
+          </div>
+        </main>
+      )}
+      {isApiConfigured && (
+        <>
+          <ScrollToTop />
       <Routes>
         {/* --- ADMIN ROUTES (No Header/Footer) --- */}
         <Route path="/admin" element={<Navigate to="/admin/login" replace />} />
@@ -156,6 +168,8 @@ function App() {
         <Route path="/packages/devotional" element={<PublicLayout><DevotionalTour /></PublicLayout>} />
         <Route path="/packages/educational" element={<PublicLayout><EducationalTour /></PublicLayout>} />
       </Routes>
+        </>
+      )}
     </BrowserRouter>
   );
 }

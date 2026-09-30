@@ -1,11 +1,8 @@
-const configuredApiUrl = import.meta.env.VITE_API_URL;
+const configuredApiUrl = import.meta.env.VITE_API_URL?.trim();
 
-if (!configuredApiUrl) {
-  throw new Error('VITE_API_URL is not defined. Set it in your .env.development.local (dev) or Vercel environment variables (production).');
-}
+const API_URL = configuredApiUrl ? configuredApiUrl.replace(/\/+$/, '') : '';
 
-const API_URL = configuredApiUrl.endsWith('/')
-  ? configuredApiUrl.slice(0, -1)
-  : configuredApiUrl;
+export const isApiConfigured = Boolean(API_URL);
+export const API_CONFIGURATION_ERROR = 'VITE_API_URL is not configured. Set it to the deployed backend URL in Vercel Environment Variables, then redeploy.';
 
 export default API_URL;

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const MONGO_URI = process.env.MONGO_URI;
 
@@ -22,7 +22,7 @@ const TourBookingSchema = new mongoose.Schema({
 
 const Booking = mongoose.models.TourBooking || mongoose.model('TourBooking', TourBookingSchema, 'tourbookings');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
@@ -47,4 +47,4 @@ export default async function handler(req, res) {
   } catch (error) {
     res.status(500).json({ success: false, error: 'Failed to save booking', message: error.message });
   }
-}
+};

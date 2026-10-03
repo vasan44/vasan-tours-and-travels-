@@ -6,9 +6,13 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          maps: ['@react-google-maps/api', 'leaflet', 'react-leaflet'],
+        manualChunks(id) {
+          if (id.includes('react-dom') || id.includes('react-router-dom') || id.includes('node_modules/react/')) {
+            return 'vendor';
+          }
+          if (id.includes('@react-google-maps') || id.includes('leaflet') || id.includes('react-leaflet')) {
+            return 'maps';
+          }
         }
       }
     },

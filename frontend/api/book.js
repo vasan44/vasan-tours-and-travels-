@@ -1,9 +1,11 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const MONGO_URI = process.env.MONGO_URI;
 
-if (mongoose.connection.readyState === 0) {
-  mongoose.connect(MONGO_URI);
+let conn = null;
+async function connectDB() {
+  if (conn && mongoose.connection.readyState === 1) return;
+  conn = await mongoose.connect(MONGO_URI);
 }
 
 const TourBookingSchema = new mongoose.Schema({
@@ -20,7 +22,7 @@ const TourBookingSchema = new mongoose.Schema({
 
 const Booking = mongoose.models.TourBooking || mongoose.model('TourBooking', TourBookingSchema, 'tourbookings');
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
@@ -29,6 +31,7 @@ module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
+    await connectDB();
     const { name, email, mobile, whatsapp, city, tourType, destination, date, guests } = req.body;
     const booking = await Booking.create({
       name,
@@ -44,4 +47,4 @@ module.exports = async (req, res) => {
   } catch (error) {
     res.status(500).json({ success: false, error: 'Failed to save booking', message: error.message });
   }
-};
+}

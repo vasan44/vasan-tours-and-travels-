@@ -10,6 +10,7 @@ const allowedOrigins = [
   'http://localhost:3000',
   'https://frontend-git-main-vasanro44-8300s-projects.vercel.app',
   'https://vasan-tours-and-travels-7xv4jko46-vasanro44-8300s-projects.vercel.app',
+  'https://vasan-tours-and-travels-73o98g1k9-vasanro44-8300s-projects.vercel.app',
   process.env.CORS_ORIGIN,
 ].filter(Boolean);
 

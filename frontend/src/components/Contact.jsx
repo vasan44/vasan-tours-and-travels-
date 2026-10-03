@@ -63,7 +63,7 @@ export default function Contact() {
 
       {/* 1. Banner Section - Color code fixed to #8B2248 */}
       <div className="relative w-full h-72 md:h-80 bg-cover bg-center flex items-center"
-           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000')" }}> 
+           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800')" }}> 
         <div className="absolute inset-0 bg-[]/85"></div> 
         <div className="relative z-10 container mx-auto px-6 md:px-12 text-white text-center md:text-left">
           <h1 className="text-4xl md:text-5xl font-bold mb-3 tracking-wide">Contact Us</h1>

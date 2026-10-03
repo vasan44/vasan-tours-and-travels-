@@ -8,7 +8,7 @@ export default function Alappuzha() {
       
       {/* 1. Banner Section */}
       <div className="relative w-full h-[400px] bg-cover bg-center flex flex-col justify-center px-4 md:px-12 text-white"
-           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=2000')" }}> {/* Alleppey Houseboat Image */}
+           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=800')" }}> {/* Alleppey Houseboat Image */}
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 container mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Kerala - Alappuzha</h1>
@@ -74,8 +74,8 @@ export default function Alappuzha() {
                   <li className="list-none flex items-center gap-2"><StarIcon /> Overnight Stay in Houseboat</li>
               </div>
               <div className="mt-6 grid grid-cols-2 gap-4">
-                 <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1000" className="rounded-lg h-48 w-full object-cover" alt="Kerala Lunch" />
-                 <img src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?q=80&w=1000" className="rounded-lg h-48 w-full object-cover" alt="Sunset in Alleppey" />
+                 <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=600" className="rounded-lg h-48 w-full object-cover" alt="Kerala Lunch" />
+                 <img src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?q=80&w=600" className="rounded-lg h-48 w-full object-cover" alt="Sunset in Alleppey" />
               </div>
           </div>
 

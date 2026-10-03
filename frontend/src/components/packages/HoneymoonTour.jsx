@@ -48,7 +48,7 @@ const HoneymoonTour = () => {
       {/* --- 1. Hero Banner Section --- */}
       <div 
         className="relative h-[450px] flex items-center px-10 md:px-20 bg-cover bg-center mt-20"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2070&auto=format&fit=crop')" }}
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2070')" }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-white border-l-4 border-[#8B2248] pl-6">
@@ -67,7 +67,7 @@ const HoneymoonTour = () => {
           </h2>
           
           <img 
-            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070" 
             alt="Honeymoon Couple" 
             className="w-full h-[450px] object-cover rounded-2xl shadow-xl mb-10" 
           />

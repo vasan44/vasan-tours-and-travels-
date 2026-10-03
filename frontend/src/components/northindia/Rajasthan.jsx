@@ -8,7 +8,7 @@ export default function Rajasthan() {
       
       {/* 1. Banner Section */}
       <div className="relative w-full h-[400px] bg-cover bg-center flex flex-col justify-center px-4 md:px-12 text-white"
-           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=2000')" }}> {/* Jaipur Jal Mahal */}
+           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=800')" }}> {/* Jaipur Jal Mahal */}
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 container mx-auto">
           <h1 className="text-3xl md:text-5xl font-bold mb-2">North India - Rajasthan</h1>
@@ -35,7 +35,7 @@ export default function Rajasthan() {
 
           {/* Main Image */}
           <div className="rounded-xl overflow-hidden mb-8 shadow-lg">
-             <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=2000" alt="Amber Fort Jaipur" className="w-full h-[350px] object-cover hover:scale-105 transition duration-700" />
+             <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800" alt="Amber Fort Jaipur" className="w-full h-[350px] object-cover hover:scale-105 transition duration-700" />
           </div>
 
           {/* Trip Plan Overview Cards */}
@@ -92,7 +92,7 @@ export default function Rajasthan() {
               </div>
 
               <div className="mt-6 grid grid-cols-2 gap-4">
-                 <img src="https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?q=80&w=1000" className="rounded-lg h-48 w-full object-cover shadow-md" alt="Lake Pichola" />
+                 <img src="https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?q=80&w=600" className="rounded-lg h-48 w-full object-cover shadow-md" alt="Lake Pichola" />
                  <img src="https://cdn.esquireindia.co.in/article/2025-08-27T11%3A29%3A12.540Z-LEAD%20Facade_4%20copia.jpg" className="rounded-lg h-48 w-full object-cover shadow-md" alt="Udaipur Palace" />
               </div>
           </div>

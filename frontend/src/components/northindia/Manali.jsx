@@ -8,7 +8,7 @@ export default function Manali() {
       
       {/* 1. Banner Section */}
       <div className="relative w-full h-[400px] bg-cover bg-center flex flex-col justify-center px-4 md:px-12 text-white"
-           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=2000')" }}> {/* Manali Mountains */}
+           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=800')" }}> {/* Manali Mountains */}
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 container mx-auto">
           <h1 className="text-3xl md:text-5xl font-bold mb-2">North India - Manali</h1>

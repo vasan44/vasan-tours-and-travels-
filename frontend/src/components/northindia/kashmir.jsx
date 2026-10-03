@@ -8,7 +8,7 @@ export default function Kashmir() {
       
       {/* 1. Banner Section */}
       <div className="relative w-full h-[400px] bg-cover bg-center flex flex-col justify-center px-4 md:px-12 text-white"
-           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=2000')" }}> {/* Kashmir Dal Lake */}
+           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=800')" }}> {/* Kashmir Dal Lake */}
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 container mx-auto">
           <h1 className="text-3xl md:text-5xl font-bold mb-2">North India - Kashmir</h1>

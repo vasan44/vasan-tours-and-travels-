@@ -20,7 +20,7 @@ export default function Domestic() {
     <div>
       {/* Banner Section */}
       <div className="relative w-full h-[280px] sm:h-[350px] md:h-[400px] bg-cover bg-center flex flex-col justify-center px-4 sm:px-6 md:px-12 text-white"
-           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1598324789736-4861f89564a0?q=80&w=2000')" }}>
+           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1598324789736-4861f89564a0?q=80&w=800')" }}>
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 container mx-auto pt-16 sm:pt-20">
           

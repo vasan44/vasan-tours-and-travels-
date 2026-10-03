@@ -43,7 +43,7 @@ export default function Kerala() {
       
       {/* Banner */}
       <div className="relative w-full h-[400px] bg-cover bg-center flex flex-col justify-center px-4 md:px-12 text-white"
-           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=2000')" }}>
+           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=800')" }}>
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 container mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-3">Kerala Tourism</h1>

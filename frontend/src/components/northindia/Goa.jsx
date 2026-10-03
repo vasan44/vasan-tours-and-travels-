@@ -8,7 +8,7 @@ export default function Goa() {
       
       {/* 1. Banner Section */}
       <div className="relative w-full h-[400px] bg-cover bg-center flex flex-col justify-center px-4 md:px-12 text-white"
-           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=2000')" }}> {/* Goa Beach Banner */}
+           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800')" }}> {/* Goa Beach Banner */}
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 container mx-auto">
           <h1 className="text-3xl md:text-5xl font-bold mb-2">North India - Goa</h1>
@@ -35,7 +35,7 @@ export default function Goa() {
 
           {/* Main Image */}
           <div className="rounded-xl overflow-hidden mb-8 shadow-lg">
-             <img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=2000" alt="Goa Palolem Beach" className="w-full h-[350px] object-cover hover:scale-105 transition duration-700" />
+             <img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=800" alt="Goa Palolem Beach" className="w-full h-[350px] object-cover hover:scale-105 transition duration-700" />
           </div>
 
           {/* Trip Plan Overview Cards */}
@@ -74,7 +74,7 @@ export default function Goa() {
               </div>
               
               <div className="mt-6 grid grid-cols-2 gap-4">
-                 <img src="https://images.unsplash.com/photo-1614082242765-7c98ca0f3df3?q=80&w=1000" className="rounded-lg h-48 w-full object-cover shadow-md" alt="Fort Aguada" />
+                 <img src="https://images.unsplash.com/photo-1614082242765-7c98ca0f3df3?q=80&w=600" className="rounded-lg h-48 w-full object-cover shadow-md" alt="Fort Aguada" />
                  <img src="https://s7ap1.scene7.com/is/image/incredibleindia/baga-beach-goa-goa-baga-beach-3-attr-hero?qlt=82&ts=1742166173059" className="rounded-lg h-48 w-full object-cover shadow-md" alt="Baga Beach" />
               </div>
           </div>

@@ -7,20 +7,20 @@ const packagesData = [
   { 
     id: 1, 
     title: "Domestic Tour", 
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000", 
+    image: "https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=600", 
     link: "/domestic" 
   },
   
   { 
     id: 3, 
     title: "Family Tour", 
-    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=1000", 
+    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=600", 
     link: "/packages/family" 
   },
   { 
     id: 4, 
     title: "Honeymoon Tour", 
-    image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1000", 
+    image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=600", 
     link: "/packages/honeymoon" 
   },
   { 
@@ -43,7 +43,7 @@ export default function Packages() {
       
       {/* Banner Section (Optional - keep existing if you want, or remove for this specific design) */}
       <div className="relative w-full h-[350px] bg-cover bg-center flex flex-col justify-center px-4 md:px-12 text-white"
-           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2000')" }}> 
+           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800')" }}> 
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 container mx-auto">
              <h1 className="text-4xl md:text-6xl font-bold mb-2 text-center">Our Holiday Packages</h1>

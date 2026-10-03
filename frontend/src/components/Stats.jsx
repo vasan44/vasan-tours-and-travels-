@@ -35,7 +35,7 @@ export default function Stats() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-fixed z-0"
         style={{ 
-            backgroundImage: `url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop')` 
+            backgroundImage: `url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800')` 
         }}
       >
         <div className="absolute inset-0 bg-black/40"></div>

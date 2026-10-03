@@ -1,12 +1,12 @@
 import React from 'react';
 
 const tourImages = [
-  "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=2000", 
-  "https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2000", 
+  "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=800", 
+  "https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=800", 
    "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/06/ef/4c/9c.jpg", 
    "https://assets.cntraveller.in/photos/660aa4cb9bf4040bef26fd07/master/pass/GettyImages-558950893.jpg",
    "https://hblimg.mmtcdn.com/content/hubble/img/ooty/mmt/activities/t_ufs/m_activities-ooty-pykara-waterfalls_l_400_640.jpg",
-   "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dHJhdmVsfGVufDB8fDB8fHww"
+   "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dHJhdmVsfGVufDB8fDB8fHww"
 ];
 
 export default function RecentTours() {

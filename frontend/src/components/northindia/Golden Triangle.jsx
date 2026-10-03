@@ -8,7 +8,7 @@ export default function GoldenTriangle() {
       
       {/* 1. Banner Section */}
       <div className="relative w-full h-[400px] bg-cover bg-center flex flex-col justify-center px-4 md:px-12 text-white"
-           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2000')" }}> {/* Taj Mahal */}
+           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800')" }}> {/* Taj Mahal */}
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 container mx-auto">
           <h1 className="text-3xl md:text-5xl font-bold mb-2">North India - Golden Triangle</h1>
@@ -35,7 +35,7 @@ export default function GoldenTriangle() {
 
           {/* Main Image */}
           <div className="rounded-xl overflow-hidden mb-8 shadow-lg">
-             <img src="https://images.unsplash.com/photo-1598324789736-4861f89564a0?q=80&w=2000" alt="Hawa Mahal Jaipur" className="w-full h-[350px] object-cover hover:scale-105 transition duration-700" />
+             <img src="https://images.unsplash.com/photo-1598324789736-4861f89564a0?q=80&w=800" alt="Hawa Mahal Jaipur" className="w-full h-[350px] object-cover hover:scale-105 transition duration-700" />
           </div>
 
           {/* Trip Plan Overview Cards */}
@@ -74,8 +74,8 @@ export default function GoldenTriangle() {
               </div>
               
               <div className="mt-6 grid grid-cols-2 gap-4">
-                 <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=1000" className="rounded-lg h-48 w-full object-cover shadow-md" alt="India Gate" />
-                 <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000" className="rounded-lg h-48 w-full object-cover shadow-md" alt="Taj Mahal" />
+                 <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=600" className="rounded-lg h-48 w-full object-cover shadow-md" alt="India Gate" />
+                 <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=600" className="rounded-lg h-48 w-full object-cover shadow-md" alt="Taj Mahal" />
               </div>
           </div>
 
@@ -94,8 +94,8 @@ export default function GoldenTriangle() {
               </div>
 
               <div className="mt-6 grid grid-cols-2 gap-4">
-                 <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=1000" className="rounded-lg h-48 w-full object-cover shadow-md" alt="Amber Fort" />
-                 <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1000" className="rounded-lg h-48 w-full object-cover shadow-md" alt="Jal Mahal" />
+                 <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=600" className="rounded-lg h-48 w-full object-cover shadow-md" alt="Amber Fort" />
+                 <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=600" className="rounded-lg h-48 w-full object-cover shadow-md" alt="Jal Mahal" />
               </div>
           </div>
 
